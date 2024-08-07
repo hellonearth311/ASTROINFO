@@ -2,11 +2,6 @@ import customtkinter as ctk
 
 from classes import Asteroid, search_by_date
 
-# CURRENT VERSION: 1.0 RELEASE
-'''
-Future plans:
-- v 1.0.1: connect AOS to the program
-'''
 class AStROINFO(ctk.CTk):
     def __init__(self):
         """The main ASTROINFO program."""

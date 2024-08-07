@@ -6,14 +6,6 @@ import requests
 from astroquery.jplsbdb import SBDB
 from dotenv import load_dotenv
 
-# CURRENT VERSION: 1.0 RELEASE
-
-"""
-Future plans:
-- v 1.0.1: Link AOS to ASTROINFO
-"""
-
-
 class Asteroid:
     def __new__(cls, identifier):
         """Detects if the asteroid is a NEO and changes the class to NearEarthObject if it is."""

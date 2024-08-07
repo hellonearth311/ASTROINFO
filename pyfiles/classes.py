@@ -6,12 +6,11 @@ import requests
 from astroquery.jplsbdb import SBDB
 from dotenv import load_dotenv
 
-# CURRENT VERSION: 1.1 RELEASE
+# CURRENT VERSION: 1.0 RELEASE
 
 """
 Future plans:
-- v 1.1 RELEASE: Update documentation and make the program more user-friendly.
-- v 1.2: Link AOS to ASTROINFO
+- v 1.0.1: Link AOS to ASTROINFO
 """
 
 

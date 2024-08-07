@@ -10,7 +10,7 @@ from astroquery.jplhorizons import Horizons
 from matplotlib import use
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 
-from classes import Asteroid
+from pyfiles.classes import Asteroid
 
 use('TkAgg')
 # CURRENT VERSION: 1.0 RELEASE

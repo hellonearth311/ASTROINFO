@@ -5,7 +5,7 @@
 - AOS geometry manager moved from tkinter to customtkinter
 - Performance improvements
 
-## MINOR: [1.0.1] - 2024-08-07
+## MINOR: [1.1.0] - 2024-08-07
 - New classes in AOS.py for ctk.CTkFrame and ctk.CTkToplevel widget and window, respectively
 - Added changelog; removed version comments in files
 - Performance improvements

@@ -1,4 +1,4 @@
 /shelf/
 /.idea/
-/priv_api_key.env
 /.gitignore
+/.venv

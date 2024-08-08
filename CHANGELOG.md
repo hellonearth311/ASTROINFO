@@ -10,6 +10,12 @@
 - Added changelog; removed version comments in files
 - Performance improvements
 
+## PATCH: [1.1.1] - 2024-08-07
+- Fixed mismatching version labels in CHANGELOG and README files
+- Fixed a bug in AOS where the circles didn't clear after an update
+- Added an error message that occurs during the new method of the asteroid
+class in classes.py if the api_key.env file doesn't exist
+
 # Scheduled Updates
 
 ## MAJOR: [1.2.0] - Mid-August

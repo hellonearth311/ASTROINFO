@@ -195,8 +195,8 @@ class ORBITALSIM(ctk.CTk):
         self.ax.set_yticks([])
         self.ax.set_xlim(-2, 2)
         self.ax.set_ylim(-2, 2)
-        self.plot.set_xlim(xlim)
-        self.plot.set_ylim(ylim)
+        self.ax.set_xlim(xlim)
+        self.ax.set_ylim(ylim)
         if hours > 0:
             self.time = (datetime.strptime(self.time, "%Y-%m-%d %H:%M:%S") + timedelta(hours=hours)).strftime("%Y-%m-%d %H:%M:%S")
         elif hours < 0:
@@ -431,8 +431,8 @@ class TOPLEVELORBITALSIM(ctk.CTkToplevel):
         self.ax.set_yticks([])
         self.ax.set_xlim(-2, 2)
         self.ax.set_ylim(-2, 2)
-        self.plot.set_xlim(xlim)
-        self.plot.set_ylim(ylim)
+        self.ax.set_xlim(xlim)
+        self.ax.set_ylim(ylim)
         if hours > 0:
             self.time = (datetime.strptime(self.time, "%Y-%m-%d %H:%M:%S") + timedelta(hours=hours)).strftime("%Y-%m-%d %H:%M:%S")
         elif hours < 0:
@@ -671,8 +671,8 @@ class FRAMEORBITALSIM(ctk.CTkFrame):
         self.ax.set_yticks([])
         self.ax.set_xlim(-2, 2)
         self.ax.set_ylim(-2, 2)
-        self.plot.set_xlim(xlim)
-        self.plot.set_ylim(ylim)
+        self.ax.set_xlim(xlim)
+        self.ax.set_ylim(ylim)
         if hours > 0:
             self.time = (datetime.strptime(self.time, "%Y-%m-%d %H:%M:%S") + timedelta(hours=hours)).strftime("%Y-%m-%d %H:%M:%S")
         elif hours < 0:

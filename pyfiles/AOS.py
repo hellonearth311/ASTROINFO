@@ -535,7 +535,7 @@ class TOPLEVELORBITALSIM(ctk.CTkToplevel):
 class FRAMEORBITALSIM(ctk.CTkFrame):
     def __init__(self, master: ctk.CTk, time: None | str = None):
         """
-        The new and improved orbital simulation class, except its for a frame.
+        The new and improved orbital simulation class, except it's for a frame.
         :param time: The time of the simulation at the start. If nothing is entered, then it automatically becomes
         the current date and time of the initialization. If it is an invalid string, it is reset to the default.
         """

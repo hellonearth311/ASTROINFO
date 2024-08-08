@@ -182,10 +182,14 @@ class ORBITALSIM(ctk.CTk):
         # </editor-fold>
         self.create_defaults()
     def update_sim(self, hours=0):
-        """Updates the simulation."""
+        """
+        Updates the simulation. Can move time forward or backward a certain number of hours.
+        :param hours: An integer; representing the number of hours the simulation should be forwarded or reversed by. If the number
+        is negative, then time goes backwards.
+        """
         # Save zoom
-        xlim = self.plot.get_xlim()
-        ylim = self.plot.get_ylim()
+        xlim = self.ax.get_xlim()
+        ylim = self.ax.get_ylim()
         # Clear ax
         self.ax.cla()
         # Restore ax settings
@@ -420,8 +424,8 @@ class TOPLEVELORBITALSIM(ctk.CTkToplevel):
     def update_sim(self, hours=0):
         """Updates the simulation."""
         # Save zoom
-        xlim = self.plot.get_xlim()
-        ylim = self.plot.get_ylim()
+        xlim = self.ax.get_xlim()
+        ylim = self.ax.get_ylim()
         # Clear ax
         self.ax.cla()
         # Restore ax settings
@@ -660,8 +664,8 @@ class FRAMEORBITALSIM(ctk.CTkFrame):
         is negative, then time goes backwards.
         """
         # Save zoom
-        xlim = self.plot.get_xlim()
-        ylim = self.plot.get_ylim()
+        xlim = self.ax.get_xlim()
+        ylim = self.ax.get_ylim()
         # Clear ax
         self.ax.cla()
         # Restore ax settings

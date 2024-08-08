@@ -12,6 +12,6 @@
 
 # Scheduled Updates
 
-## MAJOR: [1.1.0] - Late September
+## MAJOR: [1.2.0] - Mid-August
 - Link ASTROINFO.py to AOS.py with more functionality, such as adding a button to display an approach in AOS
 - Heavy simplification and performance improvements

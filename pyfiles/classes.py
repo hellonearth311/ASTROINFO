@@ -4,7 +4,7 @@ from os import getenv
 
 import requests
 from astroquery.jplsbdb import SBDB
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 class Asteroid:
     def __new__(cls, identifier):
@@ -26,9 +26,15 @@ class Asteroid:
                 instance.SPKID = str(int(instance.IAU) + 2_000_000)  # Adjust SPKID
 
             if instance.SBDB['object']['neo']:
-                load_dotenv('api_key.env')
+                try:
+                    dotenv_path = find_dotenv('priv_api_key.env', raise_error_if_not_found=True)
+                except Exception:
+                    try:
+                        dotenv_path = find_dotenv('api_key.env', raise_error_if_not_found=True)
+                    except Exception:
+                        print("No api_key.env file found; please visit https://github.com/chengezahmad/ASTROINFO to see where to replace it")
+                load_dotenv(dotenv_path)
                 url = f"https://api.nasa.gov/neo/rest/v1/neo/{instance.SPKID}?api_key{getenv('api_key')}"
-                print(getenv('api_key'))
                 main_response = requests.get(url)
                 if main_response.status_code == 200:
                     instance.NEOWS = main_response.json()  # Define the NEOWS database before moving to the next class

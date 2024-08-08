@@ -1,3 +1,4 @@
 /shelf/
 /.venv
 .idea/
+/priv_api_key.env

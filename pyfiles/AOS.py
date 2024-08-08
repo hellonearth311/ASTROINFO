@@ -758,4 +758,3 @@ class FRAMEORBITALSIM(ctk.CTkFrame):
 if __name__ == '__main__':
     main = ORBITALSIM()
     main.mainloop()
-

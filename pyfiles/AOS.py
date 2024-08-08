@@ -533,7 +533,7 @@ class TOPLEVELORBITALSIM(ctk.CTkToplevel):
                     except ValueError:
                         pass
 class FRAMEORBITALSIM(ctk.CTkFrame):
-    def __init__(self, master: ctk.CTk | tkinter.Tk, time: None | str = None):
+    def __init__(self, master: ctk.CTk, time: None | str = None):
         """
         The new and improved orbital simulation class, except its for a frame.
         :param time: The time of the simulation at the start. If nothing is entered, then it automatically becomes

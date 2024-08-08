@@ -55,15 +55,15 @@ class CelestialBody:
         )
     def upd(self, time):
         """Updates the object's position according to the current time and date."""
-        try:
+        if self.obj is not None:
             self.obj.remove()  # First, remove the object.
-            # Remove texts in the global function.
-            self.x, self.y = coords(self.horizons_id, id_type=self.id_type, time=time)  # Update the time accordingly, and get new coordinates.
-            self.obj = plt.Circle((self.x, self.y), radius=self.radius_au, color=self.color)  # Redraw the circle.
-            self.plot.add_artist(self.obj)  # Adds the circle to the plot.
-            self.plot.text(self.x + 2 * self.radius_au, self.y, self.name, fontsize=10, ha='center', va='center')  # Readds the text.
-        except ValueError:
-            pass
+        # Remove texts in the global function.
+        self.x, self.y = coords(self.horizons_id, id_type=self.id_type, time=time)  # Update the time accordingly, and get new coordinates.
+        self.obj = plt.Circle((self.x, self.y), radius=self.radius_au, color=self.color)  # Redraw the circle.
+        self.plot.add_artist(self.obj)  # Adds the circle to the plot.
+        self.plot.text(self.x + 2 * self.radius_au, self.y, self.name, fontsize=10, ha='center', va='center')  # Readds the text.
+        self.fig_canvas.draw()
+
 # Create a placeholdertext class for the large text box where objects are inputted
 class PlaceholderText(ctk.CTkTextbox):
     def __init__(self, master=None, placeholder="Enter an asteroid ID here...", **kwargs):
@@ -183,6 +183,20 @@ class ORBITALSIM(ctk.CTk):
         self.create_defaults()
     def update_sim(self, hours=0):
         """Updates the simulation."""
+        # Save zoom
+        xlim = self.plot.get_xlim()
+        ylim = self.plot.get_ylim()
+        # Clear ax
+        self.ax.cla()
+        # Restore ax settings
+        self.ax.set_aspect('equal')
+        self.ax.axes.format_coord = lambda x, y: ""
+        self.ax.set_xticks([])
+        self.ax.set_yticks([])
+        self.ax.set_xlim(-2, 2)
+        self.ax.set_ylim(-2, 2)
+        self.plot.set_xlim(xlim)
+        self.plot.set_ylim(ylim)
         if hours > 0:
             self.time = (datetime.strptime(self.time, "%Y-%m-%d %H:%M:%S") + timedelta(hours=hours)).strftime("%Y-%m-%d %H:%M:%S")
         elif hours < 0:
@@ -405,6 +419,20 @@ class TOPLEVELORBITALSIM(ctk.CTkToplevel):
         self.create_defaults()
     def update_sim(self, hours=0):
         """Updates the simulation."""
+        # Save zoom
+        xlim = self.plot.get_xlim()
+        ylim = self.plot.get_ylim()
+        # Clear ax
+        self.ax.cla()
+        # Restore ax settings
+        self.ax.set_aspect('equal')
+        self.ax.axes.format_coord = lambda x, y: ""
+        self.ax.set_xticks([])
+        self.ax.set_yticks([])
+        self.ax.set_xlim(-2, 2)
+        self.ax.set_ylim(-2, 2)
+        self.plot.set_xlim(xlim)
+        self.plot.set_ylim(ylim)
         if hours > 0:
             self.time = (datetime.strptime(self.time, "%Y-%m-%d %H:%M:%S") + timedelta(hours=hours)).strftime("%Y-%m-%d %H:%M:%S")
         elif hours < 0:
@@ -626,7 +654,25 @@ class FRAMEORBITALSIM(ctk.CTkFrame):
         # </editor-fold>
         self.create_defaults()
     def update_sim(self, hours=0):
-        """Updates the simulation."""
+        """
+        Updates the simulation. Can move time forward or backward a certain number of hours.
+        :param hours: An integer; representing the number of hours the simulation should be forwarded or reversed by. If the number
+        is negative, then time goes backwards.
+        """
+        # Save zoom
+        xlim = self.plot.get_xlim()
+        ylim = self.plot.get_ylim()
+        # Clear ax
+        self.ax.cla()
+        # Restore ax settings
+        self.ax.set_aspect('equal')
+        self.ax.axes.format_coord = lambda x, y: ""
+        self.ax.set_xticks([])
+        self.ax.set_yticks([])
+        self.ax.set_xlim(-2, 2)
+        self.ax.set_ylim(-2, 2)
+        self.plot.set_xlim(xlim)
+        self.plot.set_ylim(ylim)
         if hours > 0:
             self.time = (datetime.strptime(self.time, "%Y-%m-%d %H:%M:%S") + timedelta(hours=hours)).strftime("%Y-%m-%d %H:%M:%S")
         elif hours < 0:

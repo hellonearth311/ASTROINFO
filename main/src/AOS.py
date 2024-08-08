@@ -64,7 +64,7 @@ class CelestialBody:
         self.plot.text(self.x + 2 * self.radius_au, self.y, self.name, fontsize=10, ha='center', va='center')  # Readds the text.
         self.fig_canvas.draw()
 
-# Create a placeholdertext class for the large text box where objects are inputted
+# Create a placeholder text class for the large text box where objects are inputted
 class PlaceholderText(ctk.CTkTextbox):
     def __init__(self, master=None, placeholder="Enter an asteroid ID here...", **kwargs):
         """
